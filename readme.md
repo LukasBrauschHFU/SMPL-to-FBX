@@ -1,16 +1,5 @@
 # SMPL to FBX
 
-![](Imgs/teaser.gif)
-
-> 🤖 Update 2023: Support blender addons.
-
-I can convert motions in SMPL format into FBX files.
-
-## Blender addons
-Blender addon allows you to load SMPL into Blender without setting up FBX SDK and get the best of Blender's power.
-
-Blender files and part of codes are based on https://smpl.is.tue.mpg.de/.
-
 ### Install blender addon:
 (download zip file from Releases) -> `Edit` -> `Preferences` -> `Add-ons` -> `Install` -> (select the zip file) -> search smpl -> check the inventory of `SMPL: Load SMPL from pickle`
 
@@ -21,23 +10,6 @@ See the screen recording.
 
 https://github.com/softcat477/SMPL-to-FBX/assets/25975988/e9405fc4-9748-4d67-9118-9e63e04bd027
 
-## Steps
-1. Install [Python FBX](https://download.autodesk.com/us/fbx/20112/fbx_sdk_help/index.html?url=WS1a9193826455f5ff453265c9125faa23bbb5fe8.htm,topicNumber=d0e8312).
-1. Download the [SMPL fbx model](https://smpl.is.tue.mpg.de) for unity. Keep the male model `SMPL_m_unityDoubleBlends_lbs_10_scale5_207_v1.0.0.fbx`.
-2. `pip install -r requirements.txt`
-3. Here's the file structure:
-    ```
-    <root>
-    |--Convert.py
-    |--SmplObject.py
-    |--FbxReadWriter.py
-    |--<pkl_path>/
-    |  |--*.pkl
-    |--<fbx_path>/
-    |  |--SMPL_m_unityDoubleBlends_lbs_10_scale5_207_v1.0.0.fbx
-    |--<output_path>/
-    ```
-4. `python3 Convert.py --input_pkl_base <pkl_path> --fbx_source_path <fbx_path>/SMPL_m_unityDoubleBlends_lbs_10_scale5_207_v1.0.0.fbx --output_base <output_path>` to start converting.
 ## What's inside the pkl file?
 A pkl file contains a dictionary with two keys: `smpl_poses` and `smpl_trans`. There's a sample pkl file in `./Pkls/sample.pkl`.
 * `Dict["smpl_poses"]` : A `(N, 72)` ndarray, where `N` is the frame number.
