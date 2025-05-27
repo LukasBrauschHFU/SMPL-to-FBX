@@ -107,7 +107,7 @@ class OpenSmplPklOperator(bpy.types.Operator, ImportHelper):
         obj.animation_data.action.frame_start = 1
         obj.animation_data.action.frame_end = bone_data.shape[0]
 
-        bpy.context.scene.render.fps = 60
+        bpy.context.scene.render.fps = 30
 
         return {'FINISHED'}
 
